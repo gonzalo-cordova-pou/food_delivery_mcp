@@ -1,5 +1,8 @@
 # Local Model Context Protocol Server for a Food Delivery Application
 
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/downloads/release/python-3100/) <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+[![Model Context Protocol](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-orange)](https://modelcontextprotocol.io/introduction)
+[![Firebase](https://img.shields.io/badge/Firebase-039BE5?logo=Firebase&logoColor=white)](#)
 
 ## Demo
 
@@ -42,6 +45,9 @@ food-delivery-mcp/
 
 This structure intentionally isolates distinct logical components. The database interaction logic is encapsulated within the db/ directory, completely separate from the MCP server definition in server.py. This architectural decision is pivotal. It allows the server to act as a clean orchestration layer, defining the Tools and Resources available to the AI agent and delegating the underlying data operations to the firestore_client module. This separation makes each component independently testable and easier to reason about, a significant advantage when time is of the essence.
 
+## Database client
+
+For this project we use Firestore as the database. The `db/firestore_client.py` module encapsulates all interactions with Firestore, providing a clean interface for the server to use. This separation of concerns allows for easier testing and maintenance.
 
 ### Mapping Application Logic to MCP Primitives: Thinking in AI Terms
 
