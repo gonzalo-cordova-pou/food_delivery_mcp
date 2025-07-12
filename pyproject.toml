@@ -1,0 +1,21 @@
+[project]
+name = "food-delivery-mcp"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "gonzalo-cordova-pou", email = "gonzalocp6@gmail.com"},
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "firebase-admin>=6.9.0",
+    "google-cloud-firestore>=2.21.0",
+    "mcp[cli]>=1.11.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "isort>=6.0.1",
+]
