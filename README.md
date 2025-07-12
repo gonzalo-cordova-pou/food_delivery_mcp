@@ -1,25 +1,42 @@
 # Local Model Context Protocol Server for a Food Delivery Application
 
+
+## Demo
+
+### Are you hungry? Ask for the restaurant menu!
+
+![
+Asking for food.
+](./docs/images/demo1.png)
+
+### Let the agent order for you!
+
+![alt text](./docs/images/demo2.png)
+
+### Check the status of your order!
+
+![alt text](./docs/images/demo3.png)
+
+
 ## Code structure
 
 An effective directory layout for the food delivery MCP server is as follows:
 
 ```
 food-delivery-mcp/
-├──.venv/                  # The isolated Python virtual environment
-├──.env                    # Secure storage for environment variables
-├── config/
-│   └── settings.py         # Centralized application configuration
+├──.venv/                   # The isolated Python virtual environment
+├──.env                     # Secure storage for environment variables
 ├── data_models/
 │   └── models.py           # The dataclasses provided for the application
 ├── db/
-│   └── firestore_client.py   # All database interaction logic
+│   └── firestore_client.py # All database interaction logic
 ├── protocol/
 │   ├── __init__.py         # Initializes the protocol package
 │   ├── resources.py        # Defines the MCP Resources for the application
 │   └── tools.py            # Defines the MCP Tools for the application
 ├── server.py               # The main FastMCP server implementation
-├── requirements.txt        # A list of all project dependencies
+├── pyproject.toml          # Project metadata and dependencies
+├── requirements.txt        # List of dependencies for the project
 └── README.md               # Project documentation
 ```
 
@@ -45,10 +62,7 @@ For the food delivery app, the features can be mapped to MCP primitives as follo
 | Search for restaurants   | Tool           | This is an active search operation that requires parameters (e.g., cuisine, rating) and performs a filtered query against the database. The LLM decides when to perform this action based on a user's request to find something specific. | "Find me Italian restaurants with a rating above 4 stars" |
 | View a restaurant's menu | Resource       | This is a pure, read-only data retrieval for a specific entity (a restaurant). Once a restaurant is identified, the host application can fetch its menu as context for the LLM without the LLM needing to perform an "action". | (After user selects a restaurant) The client fetches the resource at `foodapp://restaurants/{id}/menu` |
 | Place an order            | Tool           | This is the quintessential action. It has significant side effects: it creates a new Order document in Firestore and initiates a real-world process. It requires explicit invocation and user confirmation. | "Order a margherita pizza from Pizza Palace." |
-| Check order status        | Tool           | While this is a read operation, it's an action
-taken to retrieve a specific, dynamic piece of information for the user based on a unique identifier (the order ID). It's a direct request for the server to do something. | "What is the status of my last order?" |
-| List all available cuisines | Resource       | This involves retrieving a list of relatively static, descriptive
-data. It's useful context for the LLM to know the possible values it can use for the cuisine parameter in the search_restaurants tool. | "What types of food can I order?" |
-|-----------------------------|----------------|-------------------------------------------------------------------------------|------------------------------------------------------------|
+| Check order status        | Tool           | While this is a read operation, it's an action taken to retrieve a specific, dynamic piece of information for the user based on a unique identifier (the order ID). It's a direct request for the server to do something. | "What is the status of my last order?" |
+| List all available cuisines | Resource       | This involves retrieving a list of relatively static, descriptive data. It's useful context for the LLM to know the possible values it can use for the cuisine parameter in the search_restaurants tool. | "What types of food can I order?" |
 
 
