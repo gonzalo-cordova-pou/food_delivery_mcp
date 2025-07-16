@@ -1,6 +1,7 @@
 # Local Model Context Protocol Server for a Food Delivery Application
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/downloads/release/python-3100/) <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+![](https://badge.mcpx.dev?type=server 'MCP Server')
 [![Model Context Protocol](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-orange)](https://modelcontextprotocol.io/introduction)
 [![Firebase](https://img.shields.io/badge/Firebase-039BE5?logo=Firebase&logoColor=white)](#)
 
