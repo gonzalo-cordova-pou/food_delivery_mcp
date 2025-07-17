@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/gonzalo-cordova-pou-food-delivery-mcp-badge.png)](https://mseep.ai/app/gonzalo-cordova-pou-food-delivery-mcp)
+
 # Local Model Context Protocol Server for a Food Delivery Application
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/downloads/release/python-3100/) <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
